@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>HTML excercise</title>
+        <style>
+            input {
+                width: 97%;
+                padding: 4px;
+                margin: 10px;
+                }
+            select {
+            width: 95%;
+            padding: 4px;
+            margin: 10px 10px;
+            }
+            #div1 {
+                padding: 0 2%;
+                border: solid 2px;
+            }        
+        </style>
+
+        <script>
+            function allowDrop(ev) {
+                ev.preventDefault();
+            }
+            
+            function drag(ev) {
+                ev.dataTransfer.setData("text", ev.target.id);
+            }
+            
+            function drop(ev) {
+                ev.preventDefault();
+                var data = ev.dataTransfer.getData("text");
+                ev.target.appendChild(document.getElementById(data));
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1>1. HTML Form</h1>
+        <form>
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Your first name..">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="dateofbirth">
+            <label for="gender">Gender</label>
+            <select id="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your email...">
+            <label for="url">Homepage</label>
+            <input type="url" id="url" name="homepage" placeholder="Your homepage...">
+            <label for="color">Favourite Color</label>
+            <input type="color" id="color" name="favcolor" value="#ff0000"s>
+        </br>
+            <input type="submit" value="Saves">
+        </form>
+        <h1>2. Youtube videos</h1>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Amq-qlqbjYA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <h1>3. Drag & Drop</h1>
+        <p>Drag the products you want to buy to shopping bag</p>
+
+        <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)" style="width:500; height:300;">
+            <h4>Shopping baskets</h4>
+        </div>
+        <br>
+
+        <h4>Products</h4>
+        <div id="drag1" draggable="true" ondragstart="drag(event)">        
+            <p>Iphone X</p>
+        </div>
+        <div id="drag2" draggable="true" ondragstart="drag(event)">        
+            <p>Nokia 8</p>
+        </div>
+        <div id="drag3" draggable="true" ondragstart="drag(event)">        
+            <p>Samsung Galaxy Note 8</p>
+        </div>
+        <div id="drag4" draggable="true" ondragstart="drag(event)">        
+            <p>Motorola X</p>
+        </div>
+
+        <h1>4. HTML5 semantic elements</h1>
+        <a href="./page.html">Click Here!</a>
+    </body>
+</html>
